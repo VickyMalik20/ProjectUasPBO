@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TOKO KOMPUTER</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="Toko.js"></script>
+</head>
+<body background="Background.jpg">
+    <div id="header">
+        <h1>Aplikasi Toko Komputer</h1>
+        <ul id="navigation">
+            <li><a class="list" href="#konsumen">Konsumen</a></li>
+            <li><a class="list" href="#keuangan">Keuangan</li>
+            <li><a class="list" href="#kasir">Kasir</a></li>
+            <li><a class="list" href="#barangp">Stok PC</a></li>
+            <li><a class="list" href="#barangh">Stok Hardware</a></li>
+        </ul>
+    </div>
+    <div id="konsumen" class="container1">
+        <h2>Isi Data Diri Anda</h2>
+        <table>
+            <tr>
+                <td><label>Nama</label></td>
+                <td>: <input type="text" id="txtNama"></td>
+            </tr>
+            <tr>
+                <td><label>Tanggal Pesan</label></td>
+                <td>: <input type="date" id="txtTanggal"></td>
+            </tr>
+            <tr>
+                <td><label>Alamat</label></td>
+                <td>: <input type="text" id="txtAlamat"></td>
+            </tr>
+            <tr>
+                <td><label>Nomor HP</label></td>
+                <td>: <input type="text" id="txtHp"></td>
+            </tr>
+            <tr>
+                <td><label>Barang Yang Dibeli</label></td>
+                <td>:  <select id='PC'n onchange="Data()">
+                    <option value="">PC</option>
+                    <option value='Asus'>Asus</option>
+                    <option value='Toshiba'>Toshiba</option>
+                    <option value='Acer'>Acer</option>
+                    <option value='Samsung'>Samsung</option>
+                  </select>
+                  <select id='Hardware'n onchange="Data()">
+                      <option value="">Hardware</option>
+                    <option value='Mouse'>Mouse</option>
+                    <option value='Keyboard'>Keyboard</option>
+                    <option value='Speaker'>Speaker</option>
+                    <option value='Ram'>RAM</option>
+                  </select></td>
+            </tr>
+            <tr>
+                <td><label>Harga PC</label></td>
+                <td>: <label id="lblHargaPC"></label></td>
+            </tr>
+            <tr>
+                <td><label>Harga Hardware</label></td>
+                <td>: <label id="lblHargaHardware"></label></td>
+            </tr>
+            <tr>
+                <td><label>Total</label></td>
+                <td>: <label id="lblTotal"></label></td>
+            </tr>
+            <tr>
+                <td><label>Bukti Transfer</label></td>
+                <td>: <input type="file" id="Bukti"></label></td>
+            </tr>
+        </table>
+    <p>
+        <input type="button" value="Kirim" onclick="KirimData()">
+    </p>
+    </div>
+    <div id="keuangan" class="container2">
+        <h2>Bagian Keuangan</h2>
+        <table border="1">
+            <tr>
+                <th>Nama</th>
+                <th>Tanggal Lahir</th>
+                <th>Alamat</th>
+                <th>Nomor Hp</th>
+                <th>PC</th>
+                <th>Hardware</th>
+                <th>Harga PC</th>
+                <th>Harga Hardware</th>
+                <th>Total</th>
+                <th>Bukti TF</th>
+            </tr>
+            <tr>
+                <td id="tblNama"></td>
+                <td id="tblTanggal"></td>
+                <td id="tblAlamat"></td>
+                <td id="tblNomorhp"></td>
+                <td id="tblPC"></td>
+                <td id="tblHardware"></td>
+                <td id="tblHargaPC"></td>
+                <td id="tblHargaHardware"></td>
+                <td id="tblTotal"></td>
+                <td id="tblBuktiTF"></td>
+            </tr>
+
+        </table>
+    </div>
+    <div id="kasir" class="container3">
+        <h2>Kasir</h2>
+    
+        <table>
+            <tr>
+                <td><label>Nama</label></td>
+                <td>: <input type="text" id="txtNamaK"></td>
+            </tr>
+            <tr>
+                <td><label>Tanggal Pesan</label></td>
+                <td>: <input type="date" id="txtTanggalP"></td>
+            </tr>
+            <tr>
+                <td><label>Tanggal Proses</label></td>
+                <td>: <input type="date" id="txtTanggalPr"></td>
+            </tr>
+            <td><label>Barang Yang Dibeli</label></td>
+            <td>:  <select id='KasirPC'n onchange="DataK()">
+                <option value="">PC</option>
+                <option value='Asus'>Asus</option>
+                <option value='Toshiba'>Toshiba</option>
+                <option value='Acer'>Acer</option>
+                <option value='Samsung'>Samsung</option>
+              </select>
+              <select id='KasirHardware'n onchange="DataK()">
+                <option value="">Hardware</option>
+                <option value='Mouse'>Mouse</option>
+                <option value='Keyboard'>Keyboard</option>
+                <option value='Speaker'>Speaker</option>
+                <option value='Ram'>RAM</option>
+              </select></td>
+            </tr>
+            <tr>
+                <td><label>Harga PC</label></td>
+                <td>: <label id="lblHargaPcK"></label></td>
+            </tr>
+            <tr>
+                <td><label>Harga Hardware</label></td>
+                <td>: <label id="lblHargaHardwareK"></label></td>
+            </tr>
+        </table>
+            <p>
+            <input type="button" value="Total" onclick="totalharga()">
+            </p>
+        <table>
+            <tr>
+                <td><label>Total</label></td>
+                <td>: <label id="lblTotKasir"></label></td>
+            </tr>
+            <tr>
+                <td><label>Bayar</label></td>
+                <td>: <input type="text" id="txtBayar"></td>
+            </tr>
+            <tr>
+                <td><label>Kembalian</label></td>
+                <td>: <label id="lblKembali"></label></td>
+            </tr>
+        </table>
+        <p>
+            <input type="button" value="Proses" onclick="Kasir()">
+        </p>
+        <table border="1 px">
+            <tr>
+                <td><label>Nama</label></td>
+                <td>: <label id="lblNamaK"></label></td>
+            </tr>
+            <tr>
+                <td><label>Tanggal Pesan</label></td>
+                <td>: <label id="lblTanggalP"></label></td>
+            </tr>            <tr>
+                <td><label>Tanggal Proses</label></td>
+                <td>: <label id="lblTanggalProses"></label></td>
+            </tr>
+            <tr>
+                <td><label>PC</label></td>
+                <td>: <label id="lblPCKasir"></label></td>
+            </tr>
+            <tr>
+                <td><label>Hardware</label></td>
+                <td>: <label id="lblHardwareKasir"></label></td>
+            </tr>
+            <tr>
+                <td><label>Harga PC</label></td>
+                <td>: <label id="lblHrgPC"></label></td>
+            </tr>
+            <tr>
+                <td><label>Harga Hardware</label></td>
+                <td>: <label id="lblHrgHardware"></label></td>
+            </tr>
+            <tr>
+                <td><label>Total</label></td>
+                <td>: <label id="lblTot"></label></td>
+            </tr>
+            <tr>
+                <td><label>Bayar</label></td>
+                <td>: <label id="lblBayar"></label></td>
+            </tr>
+            <tr>
+                <td><label>Kembalian</label></td>
+                <td>: <label id="lblSusuk"></label></td>
+            </tr>
+        </table>
+        <tr>
+            <td>
+                <input type="button" value="Reset" onclick="Reset()"/>
+            </td>
+        </tr>
+    </div>
+    <div id="barangp" class="container4">
+        <table>
+            <h2>Stok Barang PC</h2>
+            <tr>
+                <td><label>Kode</label></td>
+                <td>: <input type="text" id="txtKode"></td>
+            </tr>
+            <tr>
+                <td><label>Nama Barang</label></td>
+                <td>: <input type="text" id="txtBarang"></td>
+            </tr>
+            <tr>
+                <td><label>Type Barang</label></td>
+                <td>: <input type="text" id="txtType"></td>
+            </tr>
+            <tr>
+                <td><label>Harga</label></td>
+                <td>: <input type="text" id="txtHarga"></td>
+            </tr>
+            </table>
+            <p>
+                <input type="button" value="Tambah" onclick="StokPc()">
+            </p>
+            <table border="1">
+                <tr>
+                    <th>Kode Barang</th>
+                    <th>Nama Barang</th>
+                    <th>Type Barang</th>
+                    <th>Harga Barang</th>
+      
+                </tr>
+                <tr>
+                    <td id="tblKodeBarang"></td>
+                    <td id="tblNamaBarang"></td>
+                    <td id="tblType"></td>
+                    <td id="tblHargaBarang"></td>
+                </tr>
+    
+            </table> 
+    </div>
+    <div id="barangh" class="container5">
+        <table>
+            <h2>Stok Barang Hardware</h2>
+            <tr>
+                <td><label>Kode</label></td>
+                <td>: <input type="text" id="txtKodeH"></td>
+            </tr>
+            <tr>
+                <td><label>Nama Barang</label></td>
+                <td>: <input type="text" id="txtBarangH"></td>
+            </tr>
+            <tr>
+                <td><label>Type Barang</label></td>
+                <td>: <input type="text" id="txtTypeH"></td>
+            </tr>
+            <tr>
+                <td><label>Harga</label></td>
+                <td>: <input type="text" id="txtHargaH"></td>
+            </tr>
+            </table>
+            <p>
+                <input type="button" value="Tambah" onclick="StokHardware()">
+            </p>
+            <table border="1">
+                <tr>
+                    <th>Kode Barang</th>
+                    <th>Nama Barang</th>
+                    <th>Type Barang</th>
+                    <th>Harga Barang</th>
+      
+                </tr>
+                <tr>
+                    <td id="tblKodeBarangH"></td>
+                    <td id="tblNamaBarangH"></td>
+                    <td id="tblTypeH"></td>
+                    <td id="tblHargaBarangH"></td>
+                </tr>
+    
+            </table>
+    </div>
+    <div id="footer">
+        <p>Dibuat Oleh <a>Vicky, Rivaldo, Dimas, Yusuf</a></p>
+    </div>
+</body>
+
+</html>
